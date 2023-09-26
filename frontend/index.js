@@ -7,10 +7,11 @@ function moduleProject1() {
 
   // 👉 TASK 1 - Add a "widget" class name to widgets so CSS kicks in
   //  ✨ add your code here
-
+  const widget = document.body.getElementsByTagName('section')[0];
+  widget.classList.add('widget');
   // 👉 TASK 2 - Build a "Quote of the Day" widget
   //  ✨ add your code here
-
+  
   // 👉 TASK 3 - Build a "Corporate Speak" widget
   //  ✨ add your code here
 
