@@ -11,23 +11,17 @@ function moduleProject1() {
   widgets.forEach(widget => {
     widget.classList.add('widget');
   })
-  let is_orange = false;
+  let headers = document.body.querySelectorAll('h3');
+  headers.forEach(header => {
+    header.classList.add('header')
+  })
+  
   // 👉 TASK 2 - Build a "Quote of the Day" widget
   //  ✨ add your code here
   //create the quote
   let widget = document.getElementsByClassName('widget')[0];
-  console.log(widget)
   let header = widget.getElementsByTagName('h3')[0];
-  console.log(header)
-  widget.addEventListener('click', () => {
-    if (!is_orange) {
-      header.style.color = '#ff4b00';
-    }
-    else {
-      header.style.color = 'rgb(133, 133, 133)';
-    }
-    is_orange = !is_orange;
-  })
+  
   let text = document.createElement('p');
   text.id = 'body_quote';
   // add content to quote
@@ -39,20 +33,99 @@ function moduleProject1() {
   author.textContent = '--Walt Disney';
   author.style.width = '100%'
   author.style.textAlign = 'right';
-  console.log(author)
   widget.appendChild(author);
   
   //  ✨ add your code here
+  let corporate_widgets = document.getElementsByClassName('corporatespeak')[0]
+  console.log(corporate_widgets)
+  corporate_widgets.id = 'corporate_speak';
+  text = document.createElement('p');
+  text.textContent = 'Mumbo Jumbo';
+  corporate_widgets.appendChild(text);
+  let corporate_header = corporate_widgets.getElementsByTagName('h3')[0];
   
+
+
+
   // 👉 TASK 4 - Build a "Countdown" widget
   //  ✨ add your code here
-
+  let Countdown_widget = document.getElementsByClassName('countdown')[0]
+  text = document.createElement('p');
+  text.textContent = 'Launch!!!';
+  Countdown_widget.appendChild(text)
+  
   // 👉 TASK 5 - Build a "Friends" widget
   //  ✨ add your code here
-
+  let friend_widget = document.getElementsByClassName('friends')[0];
+  text = document.createElement('p')
+  text.textContent = 'I have so many friends. They are invisible though so you cant see them'
+  friend_widget.appendChild(text)
   // 👉 TASK 6 - Make it so user can tab through the widgets
   //  ✨ add your code here
+  /*let is_orange = false;
+  headers.forEach(header =>
+    header.addEventListener('click', () => {
+      if (is_orange) {
+        header.style.color = 'rgb(133, 133, 133)'
+      }
+      else {
+        header.style.color = '#ff4b00'
+      }
+      is_orange = !is_orange;
+    }))
+  widgets.forEach(widget => {
+  widget.addEventListener('focus', () => {
+    widget.classList.add('focused');
+  });
+  widget.addEventListener('blur', () => {
+    widget.classList.remove('focused');
+  });
+  });*/
+  let is_orange = false;
+let currentHeader = null;
 
+// Get all widgets with the class "widget"
+const filler = document.querySelectorAll('.widget');
+
+// Function to reset the color of the currently selected header
+function resetHeaderColor() {
+  if (currentHeader) {
+    currentHeader.style.color = 'rgb(133, 133, 133)';
+  }
+}
+
+// Add a click event listener to each widget
+filler.forEach(widget => {
+  widget.addEventListener('click', () => {
+    // Reset the color of the previously selected header
+    resetHeaderColor();
+
+    // Change the color of the clicked header
+    const header = widget.querySelector('h3');
+    header.style.color = '#ff4b00';
+
+    // Update the currentHeader reference
+    currentHeader = header;
+  });
+});
+
+// Add a keydown event listener to handle tab navigation
+document.addEventListener('keydown', event => {
+  if (event.key === 'Tab') {
+    // Reset the color of the currently selected header when tab is pressed
+    resetHeaderColor();
+  }
+});
+
+// Add a focus event listener to indicate the focused widget
+filler.forEach(widget => {
+  widget.addEventListener('focus', () => {
+    widget.classList.add('focused');
+  });
+  widget.addEventListener('blur', () => {
+    widget.classList.remove('focused');
+  });
+});
 
   
   // 👆 WORK WORK ABOVE THIS LINE 👆
