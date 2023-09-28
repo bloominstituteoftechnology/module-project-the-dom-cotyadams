@@ -25,12 +25,12 @@ function moduleProject1() {
   let text = document.createElement('p');
   text.id = 'body_quote';
   // add content to quote
-  text.textContent = 'All our dreams can come true, if we have the courage to pursue them.'
+  text.textContent = 'It\'s not at all important to get it right the first time. It\'s vitally important to get it right the last time.'
   widget.appendChild(text);
   //create author
   let author = document.createElement('p');
   author.id = 'author';
-  author.textContent = '--Walt Disney';
+  author.textContent = 'Andrew Hunt and David Thomas in 1999';
   author.style.width = '100%'
   author.style.textAlign = 'right';
   widget.appendChild(author);
@@ -40,7 +40,7 @@ function moduleProject1() {
   console.log(corporate_widgets)
   corporate_widgets.id = 'corporate_speak';
   text = document.createElement('p');
-  text.textContent = 'Mumbo Jumbo';
+  text.textContent = 'We need to synergize our paradigms synergistically in order to transform our platforms agilely.';
   corporate_widgets.appendChild(text);
   let corporate_header = corporate_widgets.getElementsByTagName('h3')[0];
   
@@ -51,14 +51,14 @@ function moduleProject1() {
   //  ✨ add your code here
   let Countdown_widget = document.getElementsByClassName('countdown')[0]
   text = document.createElement('p');
-  text.textContent = 'Launch!!!';
+  text.textContent = 'Liftoff! 🚀';
   Countdown_widget.appendChild(text)
   
   // 👉 TASK 5 - Build a "Friends" widget
   //  ✨ add your code here
   let friend_widget = document.getElementsByClassName('friends')[0];
   text = document.createElement('p')
-  text.textContent = 'I have so many friends. They are invisible though so you cant see them'
+  text.textContent = 'Luis Gonzalez was born in 1990 and has no friends.'
   friend_widget.appendChild(text)
   // 👉 TASK 6 - Make it so user can tab through the widgets
   //  ✨ add your code here
